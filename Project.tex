@@ -1,0 +1,95 @@
+\documentclass[10pt]{report}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Tasos Venos}
+\rhead{1067536}
+
+\begin{document}
+\title{Project 2021-22}
+\author{Tasos Venos 1067536}
+\maketitle
+{\Huge 1. Introduction}
+\\[0.5in]
+{\Huge 1.1 Computing System Components}
+\\[0.5in]
+For the features of this PC, I used CPUZ.
+\\[0.5in]
+ 
+\begin{tabular}{ |p{6cm}||p{6cm}|}
+ \hline
+ \multicolumn{2}{|c|}{Hardware Info} \\
+ \hline
+ Characteristic & Indicative answer \\
+ \hline
+ Start/End date & 20/11/2021 - \\
+ Model & Personal Computer \\
+ O/S & Windows 10 Pro \\
+ Processor Name & AMD Ryzen 5 2600 Six-Core Processor  \\
+ Processor Speed & 3.40 GHz (base) \\
+ Number of Processors & 1 \\
+ Total number of cores & 6 \\
+ Total number of threads & 12 \\
+ FMA Instruction & Yes (FMA3) \\
+ L1D Cache & 6 x 32KBytes (8-way) \\
+ L1I Cache & 6 x 64KBytes (4-way) \\ 
+ L2 Cache & 6 x 512KBytes (8-way) \\
+ L3 Cache & 2 x 8MBytes (16-way) \\
+ Gflops/s & \\
+ Memory & 16GB \\
+ Memory Bandwith & 66 GB/s \\
+ Matlab Version & 9.10.0.1649659 (R2021a) Update 1 \\
+ BLAS & Intel(R) Math Kernel Library Version 2019.0.3 Product Build 20190125 for Intel(R) 64 architecture applications, CNR branch auto \\
+ LAPACK & Intel(R) Math Kernel Library Version 2019.0.3 Product Build 20190125 for Intel(R) 64 architecture applications, CNR branch auto, supporting Linear Algebra PACKage (LAPACK 3.7.0)\\
+ \hline
+\end{tabular}
+
+\pagebreak
+The tables that occur after using "bench" command in Matlab.
+\\~\\
+\includegraphics[scale=0.5]{1}
+\\[0.5in]
+\includegraphics[scale=0.45]{2}
+
+\pagebreak
+{\Huge 2. Sparse representations and register constructions}
+\\[0.5in]
+{\Huge 1.}
+\\~\\
+Matrix A that is used:
+\newline
+$$\left(\begin{array}{cccc} 1 & 0 & 0 & 3\\ 0 & 7 & 2 & 0\\ 1 & 0 & 0 & 5\\ 0 & 8 & 6 & 0 \end{array}\right)$$
+CSRFormat:
+\newline
+$$val=\left(\begin{array}{c|c|c|c|c|c|c|c} 1 & 3 & 7 & 2 & 1 & 5 & 6 & 8 \end{array}\right)$$
+$$col_ip=\left(\begin{array}{c|c|c|c|c|c|c|c} 1 & 4 & 2 & 4 & 3 & 4 & 3 & 4 \end{array}\right)$$
+CSC Format:
+\newline
+$$val=\left(\begin{array}{c|c|c|c|c|c|c|c} 1 & 7 & 1 & 6 & 3 & 2 & 5 & 8 \end{array}\right)$$
+$$row_ip=\left(\begin{array}{c|c|c|c|c|c|c|c} 1 & 3 & 2 & 4 & 2 & 4 & 1 & 3 \end{array}\right)$$
+\\~\\
+{\Huge 2.}
+\\~\\
+Matrices that are used:
+\newline
+\newline
+A = $$\left(\begin{array}{cc} 1 & 1\\ 1 & 1 \end{array}\right)$$
+\newline
+B =  $$\left(\begin{array}{cc} 2 & 2\\ 2 & 2 \end{array}\right)$$
+\newline
+C =  $$\left(\begin{array}{cc} 3 & 3\\ 3 & 3 \end{array}\right)$$
+\\~\\
+The result is the following Toeplitz Matrix:
+\newline
+$$\left(\begin{array}{cccccccccccccccccccc} 1 & 1 & 3 & 3 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ 1 & 1 & 3 & 3 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ 2 & 2 & 1 & 1 & 3 & 3 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ 2 & 2 & 1 & 1 & 3 & 3 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ 0 & 0 & 2 & 2 & 1 & 1 & 3 & 3 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ 0 & 0 & 2 & 2 & 1 & 1 & 3 & 3 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ 0 & 0 & 0 & 0 & 2 & 2 & 1 & 1 & 3 & 3 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ 0 & 0 & 0 & 0 & 2 & 2 & 1 & 1 & 3 & 3 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ 0 & 0 & 0 & 0 & 0 & 0 & 2 & 2 & 1 & 1 & 3 & 3 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ 0 & 0 & 0 & 0 & 0 & 0 & 2 & 2 & 1 & 1 & 3 & 3 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 2 & 1 & 1 & 3 & 3 & 0 & 0 & 0 & 0 & 0 & 0\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 2 & 1 & 1 & 3 & 3 & 0 & 0 & 0 & 0 & 0 & 0\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 2 & 1 & 1 & 3 & 3 & 0 & 0 & 0 & 0\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 2 & 1 & 1 & 3 & 3 & 0 & 0 & 0 & 0\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 2 & 1 & 1 & 3 & 3 & 0 & 0\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 2 & 1 & 1 & 3 & 3 & 0 & 0\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 2 & 1 & 1 & 3 & 3\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 2 & 1 & 1 & 3 & 3\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 2 & 1 & 1\\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 2 & 1 & 1 \end{array}\right)$$
+\\~\\
+{\Huge 3.}
+\\~\\
+Matrix A that is used:
+\\~\\
+$$\left(\begin{array}{cccccc} 1 & 0 & 0 & 0 & 3 & 4\\ 0 & 7 & 0 & 0 & 7 & 0\\ 0 & 0 & 1 & 5 & 0 & 0\\ 0 & 0 & 0 & 8 & 0 & 0\\ 7 & 5 & 0 & 0 & 2 & 0\\ 0 & 1 & 0 & 0 & 8 & 3 \end{array}\right)$$
+$$val = \left(\begin{array}{c|c|c|c|c|c|c|c|c|c|c|c|c|c} 1 &7&7&5&1&1&5&8&3&7&4&2&8&3\end{array}\right)$$
+
+\end{document}
